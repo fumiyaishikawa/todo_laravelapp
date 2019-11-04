@@ -39,13 +39,23 @@ return [
             'prefix' => '',
         ],
 
+        /*
+        .envのデータベース設定
+        DB_CONNECTION=mysql
+        DB_HOST=mysql
+        DB_PORT=3306
+        DB_DATABASE=default
+        DB_USERNAME=default
+        DB_PASSWORD=secret
+         */
+
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'mysql'), //デフォルトは127.0.0.1
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'default'),
+            'username' => env('DB_USERNAME', 'default'),
+            'password' => env('DB_PASSWORD', 'secret'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

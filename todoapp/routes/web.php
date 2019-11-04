@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Contentsテーブルの読み込みアクション
+Route::get('/todo', 'ContentController@index');
+
+// タスク登録アクション(create)
+Route::post('/todo', 'ContentController@create');
