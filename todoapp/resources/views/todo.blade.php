@@ -7,20 +7,20 @@
 @section('content')
 @foreach($items as $item)
 <tr>
-    <td>{{ $item->id }}</td>
-    <td>{{ $item->content }}</td>
-    <td><a href="/todo">{{ $item->status }}</a></td>
-    <td><a href="/todo">削除</a></td>
+    <td scope="row" class="text-center">{{ $item->id }}</td>
+    <td class="text-center">{{ $item->content }}</td>
+    <td class="text-center"><a href="/todo" class="btn btn-dark text-white bg-dark">{{ $item->status }}</a></td>
+    <td class="text-center"><a href="/todo" class="btn btn-dark text-white bg-dark">削除</a></td>
 </tr>
 @endforeach
 @endsection
 
 @section('error')
-@if(count($errors) > 0)
-<div>
+@if(count($errors))
+<div class="mt-3">
     <ul>
     @foreach($errors->all() as $error)
-        <li>{{ $error }}</li>
+        <li class="text-danger">{{ $error }}</li>
     @endforeach
     </ul>
 </div>

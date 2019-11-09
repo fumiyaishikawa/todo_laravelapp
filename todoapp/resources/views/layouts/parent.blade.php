@@ -1,42 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>@yield('title')</title>
 </head>
 <body>
-    <h2>@yield('title')</h2>
+    <nav class="container mt-5">
+        <h2 class="text-center bg-light py-3">@yield('title')</h2>
+    </nav>
 
-    <section>
-        <!-- 表示するタスクの切り替えをする。JS? /formいらないかも-->
-        <!-- <div class="checkbox">
-            <form action="/home" method="post">
-            {{ csrf_field() }} -->
-                <label><input type="radio" name="radio" value="すべて" checked>すべて</label>
-                <label><input type="radio" name="radio" value="作業中">作業中</label>
-                <label><input type="radio" name="radio" value="完了">完了</label>
-            <!-- </form> -->
+    <section class="container mt-5">
+        <!-- 表示するタスクの切り替えをする。JS?-->
+        <div class="checkbox text-center">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="すべて" checked>
+                <label class="form-check-label" for="inlineRadio1">すべて</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="作業中">
+                <label class="form-check-label" for="inlineRadio2">作業中</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio" id="inlineRadio3" value="完了">
+                <label class="form-check-label" for="inlineRadio3">完了</label>
+            </div>
         </div>
 
         <!-- 登録したタスク一覧 -->
-        <table>
+        <table class="table table-striped mt-3">
             <tr>
-                <th>ID</th>
-                <th>コメント</th>
-                <th>状態</th>
-                <th></th>
+                <th scope="col" class="text-center">ID</th>
+                <th scope="col" class="text-center">コメント</th>
+                <th scope="col" class="text-center">状態</th>
+                <th scope="col" class="text-center"></th>
             </tr>
             <!-- contentsテーブルに登録されているデータを展開する -->
             @yield('content')
         </table>
 
         <!-- タスクの追加 -->
-        <div class="taskbox">
-            <h2>新規タスクの追加</h2>
-            <form action="/todo" method="post">
+        <div class="taskbox center-block mt-5">
+            <h3 class="text-center bg-light py-3">新規タスクの追加</h3>
+            <form action="/todo" method="post" class="mt-4">
             {{ csrf_field() }}
-                <input type="text" name="content" value="{{ old('content') }}">
-                <input type="hidden" name="status" value="作業中">
-                <button type="submit">追加</button>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <input type="text" name="content" value="{{ old('content') }}" class="form-control mb-2">
+                        <input type="hidden" name="status" value="作業中">
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary px-4 mb-2">追加</button>
+                    </div>
+                </div>
             </form>
         </div>
 
