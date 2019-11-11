@@ -12,7 +12,7 @@ class ContentRequest extends FormRequest
      * @return bool
      */
     public function authorize() {
-        if($this->path() === 'todo') {
+        if($this->path() === 'todo/add') {
             return true;
         } else {
             return false;

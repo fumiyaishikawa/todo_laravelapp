@@ -30,21 +30,12 @@
         </div>
 
         <!-- 登録したタスク一覧 -->
-        <table class="table table-striped mt-3">
-            <tr>
-                <th scope="col" class="text-center">ID</th>
-                <th scope="col" class="text-center">コメント</th>
-                <th scope="col" class="text-center">状態</th>
-                <th scope="col" class="text-center"></th>
-            </tr>
-            <!-- contentsテーブルに登録されているデータを展開する -->
-            @yield('content')
-        </table>
+        @yield('content')
 
         <!-- タスクの追加 -->
         <div class="taskbox center-block mt-5">
             <h3 class="text-center bg-light py-3">新規タスクの追加</h3>
-            <form action="/todo" method="post" class="mt-4">
+            <form action="/todo/add" method="post" class="mt-4">
             {{ csrf_field() }}
                 <div class="form-group row">
                     <div class="col-sm-10">

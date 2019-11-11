@@ -13,14 +13,18 @@ class ContentController extends Controller {
         return view('todo', ['items' => $items]);
     }
 
-    // タスク登録アクション(add & create)
-    // public function create(Request $request) { //削除予定です
+    // タスク登録アクション(createのみ)
     public function create(ContentRequest $request) {
-        // $this->validate($request, Content::$rules); //削除予定です
         $content = new Content;
         $form = $request->all();
         unset($form['_token']);
         $content->fill($form)->save();
+        return redirect('/todo');
+    }
+
+    //タスクの削除アクション(removeのみ)
+    public function remove(Request $request) {
+        Content::find($request->id)->delete();
         return redirect('/todo');
     }
 }
