@@ -16,12 +16,20 @@
     </tr>
 @foreach($items as $item)
     <tr>
-        <!-- <td scope="row" class="text-center">{{ $item->id }}</td> -->
         <td scope="row" class="text-center">{{ $loop->iteration }}</td>
         <td class="text-center">{{ $item->content }}</td>
-        <td class="text-center"><a href="/todo" class="btn btn-dark text-white bg-dark">{{ $item->status }}</a></td>
+
+        <!-- 状態の切り替え機能 -->
+        <form action="/todo/update" method="post">
+        {{ csrf_field() }}
+            <td class="text-center">
+                <input type="hidden" name="id" value="{{ $item->id }}">
+                <input class="btn btn-dark text-white bg-dark" type="submit" value="{{ $item->status }}">
+            </td>
+        </form>
+
         <!-- タスクの削除機能 -->
-        <form action="/todo/del" method="post">
+        <form action="/todo/delete" method="post">
         {{ csrf_field() }}
             <td class="text-center">
                 <input type="hidden" name="id" value="{{ $item->id }}">

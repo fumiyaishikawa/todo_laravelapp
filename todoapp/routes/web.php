@@ -22,4 +22,7 @@ Route::get('/todo', 'ContentController@index');
 Route::post('/todo/add', 'ContentController@create');
 
 // タスクの削除アクション(remove)
-Route::post('/todo/del', 'ContentController@remove');
+Route::post('/todo/delete', 'ContentController@remove');
+
+//タスクのstatus更新アクション(update)
+Route::post('/todo/update', 'ContentController@update');

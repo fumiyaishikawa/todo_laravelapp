@@ -27,4 +27,20 @@ class ContentController extends Controller {
         Content::find($request->id)->delete();
         return redirect('/todo');
     }
+
+    //タスクの更新アクション(upadateのみ)
+    public function update(Request $request) {
+        $content = Content::find($request->id);
+
+        // status情報を検証し置換する
+        if($content->status == '作業中') {
+            $content->status = '完了';
+        } else {
+            $content->status = '作業中';
+        }
+        unset($content['_token']);
+        $content->save();
+        return redirect('/todo');
+    }
+
 }
