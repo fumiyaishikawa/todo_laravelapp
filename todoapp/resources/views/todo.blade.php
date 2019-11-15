@@ -24,7 +24,7 @@
         {{ csrf_field() }}
             <td class="text-center">
                 <input type="hidden" name="id" value="{{ $item->id }}">
-                <input class="btn btn-dark text-white bg-dark" type="submit" value="{{ $item->status }}">
+                <input class="btn btn-dark text-white bg-dark" type="submit" value="{{ $item->status_label }}">
             </td>
         </form>
 

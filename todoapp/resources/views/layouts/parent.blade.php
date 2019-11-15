@@ -40,7 +40,7 @@
                 <div class="form-group row">
                     <div class="col-sm-10">
                         <input type="text" name="content" value="{{ old('content') }}" class="form-control mb-2">
-                        <input type="hidden" name="status" value="作業中">
+                        <input type="hidden" name="status" value="1">
                     </div>
                     <div class="col-sm-2">
                         <button type="submit" class="btn btn-primary px-4 mb-2">追加</button>
@@ -48,7 +48,6 @@
                 </div>
             </form>
         </div>
-
         <!-- タスクを登録する際のエラー文 -->
         @yield('error')
     </section>

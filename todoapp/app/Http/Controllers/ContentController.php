@@ -33,10 +33,10 @@ class ContentController extends Controller {
         $content = Content::find($request->id);
 
         // status情報を検証し置換する
-        if($content->status == '作業中') {
-            $content->status = '完了';
+        if($content->status === '1') {
+            $content->status = '2';
         } else {
-            $content->status = '作業中';
+            $content->status = '1';
         }
         unset($content['_token']);
         $content->save();
