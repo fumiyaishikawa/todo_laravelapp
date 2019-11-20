@@ -12,22 +12,26 @@
         <h2 class="text-center bg-light py-3">@yield('title')</h2>
     </nav>
 
-    <section class="container mt-5">
+    <section class="container mt-5 mb-5">
         <!-- 表示するタスクの切り替えをする。JS?-->
-        <div class="checkbox text-center">
+        <form action="/todo/find" method="post" class="checkbox text-center">
+        {{ csrf_field() }}
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="すべて" checked>
+                <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="all" checked>
                 <label class="form-check-label" for="inlineRadio1">すべて</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="作業中">
+                <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="1">
                 <label class="form-check-label" for="inlineRadio2">作業中</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radio" id="inlineRadio3" value="完了">
+                <input class="form-check-input" type="radio" name="radio" id="inlineRadio3" value="2">
                 <label class="form-check-label" for="inlineRadio3">完了</label>
             </div>
-        </div>
+            <div class="form-check form-check-inline">
+                <button type="submit" class="btn btn-primary px-2 mb-2">タスクを検索</button>
+            </div>
+        </form>
 
         <!-- 登録したタスク一覧 -->
         @yield('content')
@@ -51,6 +55,5 @@
         <!-- タスクを登録する際のエラー文 -->
         @yield('error')
     </section>
-
 </body>
 </html>

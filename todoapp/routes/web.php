@@ -26,3 +26,6 @@ Route::post('/todo/delete', 'ContentController@remove');
 
 //タスクのstatus更新アクション(update)
 Route::post('/todo/update', 'ContentController@update');
+
+//タスクの検索アクション(serach)
+Route::post('/todo/find', 'ContentController@search');

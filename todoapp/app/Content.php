@@ -23,4 +23,9 @@ class Content extends Model {
 
         return self::STATUS[$status]['label'];
     }
+
+    //タスク検索で使うstatusスコープメソッド
+    public function scopeStatusSearch($query, $str) {
+        return $query->where('status', $str);
+    }
 }

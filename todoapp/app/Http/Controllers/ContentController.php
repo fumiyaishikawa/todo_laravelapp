@@ -43,4 +43,15 @@ class ContentController extends Controller {
         return redirect('/todo');
     }
 
+    //タスクの検索アクション
+    public function search(Request $request) {
+        if($request->radio === '1') {
+            $items = Content::statusSearch($request->radio)->get();
+        } elseif($request->radio === '2') {
+            $items = Content::statusSearch($request->radio)->get();
+        } else { //allの場合
+            $items = Content::all();
+        }
+        return view('todo', ['items' => $items]);
+    }
 }

@@ -5,7 +5,6 @@
 
 {{-- 個別ページの内容 --}}
 @section('content')
-
 <!-- 登録したタスク一覧 -->
 <table class="table table-striped mt-3">
     <tr>
