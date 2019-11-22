@@ -14,7 +14,7 @@
 
     <section class="container mt-5 mb-5">
         <!-- 表示するタスクの切り替えをする。JS?-->
-        <form action="/todo/find" method="post" class="checkbox text-center">
+        <form action="{{ route('todo.find') }}" method="post" class="checkbox text-center">
         {{ csrf_field() }}
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="all" checked>
@@ -39,7 +39,7 @@
         <!-- タスクの追加 -->
         <div class="taskbox center-block mt-5">
             <h3 class="text-center bg-light py-3">新規タスクの追加</h3>
-            <form action="/todo/add" method="post" class="mt-4">
+            <form action="{{ route('todo.add') }}" method="post" class="mt-4">
             {{ csrf_field() }}
                 <div class="form-group row">
                     <div class="col-sm-10">

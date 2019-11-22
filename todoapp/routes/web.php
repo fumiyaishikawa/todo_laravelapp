@@ -11,21 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Contentsテーブルの読み込みアクション
-Route::get('/todo', 'ContentController@index');
+Route::get('/todo', 'ContentController@index')->name('todo');
 
 // タスク登録アクション(create)
-Route::post('/todo/add', 'ContentController@create');
+Route::post('/todo/add', 'ContentController@create')->name('todo.add');
 
 // タスクの削除アクション(remove)
-Route::post('/todo/delete', 'ContentController@remove');
+Route::post('/todo/delete', 'ContentController@remove')->name('todo.delete');
 
 //タスクのstatus更新アクション(update)
-Route::post('/todo/update', 'ContentController@update');
+Route::post('/todo/update', 'ContentController@update')->name('todo.update');
 
 //タスクの検索アクション(serach)
-Route::post('/todo/find', 'ContentController@search');
+Route::post('/todo/find', 'ContentController@search')->name('todo.find');
